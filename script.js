@@ -21,5 +21,5 @@ generateBtn.addEventListener("click", function(){
 
 
 //generateBtn.addEventListener("click", doSomething () {
-//confirm ("will your password contain lowercase letters?");
+//confirms ("will your password contain lowercase letters?");
 //});
