@@ -1,113 +1,45 @@
+"use strict";
 //arrays below line
-let wrongAnswers = ['Whats 2 + 2?','Whats 4+4?','Whats 8+8?'];
-let choicesQuestion1 = ['4','Buffalo','9','Quick'];
-//variables needed for button array
-let createbuttona = document.createElement("Button")
-let createbuttonb = document.createElement("Button")
-let createbuttonc = document.createElement("Button")
-let createbuttond = document.createElement("Button")
-createbuttona.className= "btn btn-success"
-createbuttonb.className= "btn btn-success"    
-createbuttonc.className= "btn btn-success"
-createbuttond.className= "btn btn-success" 
-createbuttona.innerHTML = (wrongAnswers[0]);
-createbuttonb.innerHTML = (wrongAnswers[1]);
-createbuttonc.innerHTML = (wrongAnswers[2]);
-createbuttond.innerHTML = (choicesQuestion1[3]);
-//below is needed for shuffling what buttons are placed in what button elements
-let elementButton = ['button1', 'button2', 'button3', 'button4'];
-function randomelementbuttons(elementButton) {
-    let currentIndex = elementButton.length, temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-  
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
-      // And swap it with the current element.
-      temporaryValue = elementButton[currentIndex];
-      elementButton[currentIndex] = elementButton[randomIndex];
-      elementButton[randomIndex] = temporaryValue;
-    }
-  
-    return elementButton;
-  }
-  randomelementbuttons(elementButton)
-  //above is needed for shuffling what buttons are placed in what button elements
-//variables needed for button array
-let buttons = [createbuttona, createbuttonb, createbuttonc, createbuttond];
+let questions = ['What does the concept of diversity in the workplace refer to?', 'The UK Equality Act was promulgated in', 'In which country was the Black Economic Empowerment (BEE) Programme launched in 2001:','The ‘Liberal Approach’ to Equal Opportunities advocates:']
+let wrongAnswers = ['Physical differences among employees','Historical differences among groups','Managerial difference among employees', '1970', '2000', '2005', 'Japan', 'India', 'China', 'Positive discrimination', 'The quota system', 'Policies concerned with the specific needs of traditionally disadvantaged groups'];
+let correctAnswers = ['Social differences among employees','2010','South Africa','The possibility for individuals to compete for social rewards without constraints'];
 //arrays above line
-//function shuffle buttons
-function randombuttons(buttons) {
-    let currentIndex = wrongAnswers.length, temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-  
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
-      // And swap it with the current element.
-      temporaryValue = buttons[currentIndex];
-      buttons[currentIndex] = buttons[randomIndex];
-      buttons[randomIndex] = temporaryValue;
-    }
-  
-    return buttons;
-  }
-  randombuttons(buttons);
-//function shuffle array
-function shuffle(wrongAnswers) {
-    let currentIndex = wrongAnswers.length, temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-  
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
-      // And swap it with the current element.
-      temporaryValue = wrongAnswers[currentIndex];
-      wrongAnswers[currentIndex] = wrongAnswers[randomIndex];
-      wrongAnswers[randomIndex] = temporaryValue;
-    }
-  
-    return wrongAnswers;
-  }
-  shuffle(wrongAnswers);
+//let numbers = ['0','1','2','3','4','5','6','7','8','9'];
+
+//below used for declaring where tags are for buttons
 let generateBtn = document.querySelector("#generate");
+let GenerateBtn2 = document.querySelector("#generate2");
+let GenerateBtn3 = document.querySelector("#generate3");
+let GenerateBtn4 = document.querySelector("#generate4");
+let GenerateBtn5 = document.querySelector("#generate5");
+//above used for declaring where tags are for buttons
+//below used for removing (hiding) answer buttons from main page
+document.getElementById("generate2").style.visibility = "hidden";
+document.getElementById("generate3").style.visibility = "hidden";
+document.getElementById("generate4").style.visibility = "hidden";
+document.getElementById("generate5").style.visibility = "hidden";
+//above used for removing (hiding) answer buttons from main page
 
-generateBtn.addEventListener("click", function(){
-    let body=document.getElementById("body");
-    body.outerHTML=(wrongAnswers[0]);
-    let answera=document.getElementById(elementButton[0])
-    let answerb=document.getElementById(elementButton[1])
-    let answerc=document.getElementById(elementButton[2])
-    let answerd=document.getElementById(elementButton[3])
-    let createbuttona = document.createElement("Button")
-    let createbuttonb = document.createElement("Button")
-    let createbuttonc = document.createElement("Button")
-    let createbuttond = document.createElement("Button")
-    createbuttona.className= "btn btn-success"
-    createbuttonb.className= "btn btn-success"    
-    createbuttonc.className= "btn btn-success"
-    createbuttond.className= "btn btn-success" 
-    answerb.appendChild(buttons[0]);
-    createbuttona.innerHTML = (wrongAnswers[0]);
-    createbuttonb.innerHTML = (wrongAnswers[0]);
-    createbuttonc.innerHTML = (wrongAnswers[0]);
-    createbuttond.innerHTML = (wrongAnswers[0]);
-    answera.appendChild(buttons[1]);
-    answerc.appendChild(buttons[2]);
-    answerd.appendChild(buttons[3]);
-   generateBtn.remove("Button")
-    });
+      generateBtn.addEventListener("click", function question1(){
+      let quizbox=document.getElementById("body");
+      quizbox.innerHTML = (questions[0]);
+      document.getElementById("generate2").style.visibility = "visible";
+      document.getElementById("generate3").style.visibility = "visible";
+      document.getElementById("generate4").style.visibility = "visible";
+      document.getElementById("generate5").style.visibility = "visible";
+      document.getElementById("generate").style.visibility = "hidden";
+      GenerateBtn2.innerHTML = (wrongAnswers[0]);    
+      GenerateBtn3.innerHTML = (wrongAnswers[1]);    
+      GenerateBtn4.innerHTML = (wrongAnswers[2]);    
+      GenerateBtn5.innerHTML = (correctAnswers[0]);    
+      })
 
+GenerateBtn5.addEventListener("click", function(){
+confirm ("You got it right");
+GenerateBtn5.innerHTML = (wrongAnswers[2]);
+GenerateBtn2.remove("Button")
+GenerateBtn3.remove("Button")
+GenerateBtn4.remove("Button")
 
-//generateBtn.addEventListener("click", doSomething () {
-//confirms ("will your password contain lowercase letters?");
-//});
+}) 
+
